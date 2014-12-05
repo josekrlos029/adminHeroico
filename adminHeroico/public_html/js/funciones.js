@@ -7,13 +7,13 @@
 function update() {
 
     var regid = localStorage.getItem("regId");
-    alert("");
+    alert(regid);
     var data = {
         regId: regid
     };
 
     var url = "http://"+server+"/administrador/actualizarAdmin";
-    alert(url);
+     
     $.ajax({
         type: "POST",
         url: url,
