@@ -13,25 +13,24 @@ function update() {
     };
 
     var url = "http://heroico.tudomicilio.net/administrador/actualizarAdmin";
-     
+    alert(1); 
     $.ajax({
         type: "POST",
         url: url,
         data: data
-    })
-            .done(function(msg) {
-                alert(msg);
-                var json = eval("(" + msg + ")");
-                if (json.msj == "exito") {
-                    //alert("ok");
+    }).done(function(msg) {
+        alert(msg);
+        var json = eval("(" + msg + ")");
+        if (json.msj == "exito") {
+            //alert("ok");
 
-                } else if (json.msj == "no") {
-                    alert("No puedes recibir pedidos, intenta ingresando nuevamente.");
-                } else {
-                    alert("Error en el servidor, contactate con la empresa TuDomicilio ");
-                }
+        } else if (json.msj == "no") {
+            alert("No puedes recibir pedidos, intenta ingresando nuevamente.");
+        } else {
+            alert("Error en el servidor, contactate con la empresa TuDomicilio ");
+        }
 
-            });
+    });
 
 }
 
