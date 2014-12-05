@@ -7,11 +7,9 @@
 function update() {
 
     var regid = localStorage.getItem("regId");
-    var idCentral = localStorage.getItem("idCentral");
-
+    
     var data = {
-        regId: regid,
-        idCentral: idCentral
+        regId: regid
     };
 
     var url = "http://"+server+"/administrador/actualizarAdmin";
