@@ -44,17 +44,17 @@ and open the template in the editor.
         <td align="center">Ingresa la informacion requerida</td>
   </tr>
     <tr>
-        <td align="center"><textarea placeholder="Descripcion" class="caja-text"></textarea></td>
+        <td align="center"><textarea placeholder="Descripcion" id="descripcion" class="caja-text"></textarea></td>
     </tr>
   
     <tr>
-        <td align="center"><input type="date" placeholder="fecha" class="caja-text"></td>
+        <td align="center"><input type="date" id="fecha" placeholder="fecha" class="caja-text"></td>
     </tr>
     <tr>
-        <td align="center"><input type="time" placeholder="time" class="caja-text"></td>
+        <td align="center"><input type="time" id="hora" placeholder="hora" class="caja-text"></td>
     </tr>
     <tr>
-        <td align="center"><input type="lugar" placeholder="Lugar" class="caja-text"></td>
+        <td align="center"><input type="lugar" id="lugar" placeholder="Lugar" class="caja-text"></td>
     </tr>
    </table>
         </div>
@@ -63,7 +63,7 @@ and open the template in the editor.
 
 
         <div id="footer" class="naranja">
-            <a href="#"><button class="btn">PUBLICAR</button>
+            <a href="#"><button class="btn" onclick="publicar()">PUBLICAR</button>
           </div>
         </div>
 

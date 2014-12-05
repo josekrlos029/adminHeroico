@@ -60,6 +60,36 @@ function aceptar(idDenuncia){
     });
 }
 
+function publicar(){
+    var data = {
+        descripcion: $("#descripcion"),
+        fecha: $("#fecha"),
+        hora: $("#hora"),
+        lugar: $("#lugar")
+    };
+
+    var url = "http://heroico.tudomicilio.net/administrador/registrarJornada";
+    
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: data
+    }).done(function(msg) {
+        
+        var json = eval("(" + msg + ")");
+        if (json.msj == "exito") {
+            alert("Jornada Registrada Correctamente");
+            cargarDenuncias();
+        } else if (json.msj == "no") {
+            alert("No se pudo realizar tu solicitud, intenta mas tarde");
+        } else {
+            alert("No se pudo realizar tu solicitud, intenta mas tarde");
+        }
+
+    });
+}
+
+
 function cargarDenuncias(){
     
     var url = "http://heroico.tudomicilio.net/administrador/leerDenuncias";
@@ -214,3 +244,4 @@ function tokenHandler(result) {
     // here is where you might want to send it the token for later use.
     localStorage.setItem("token", result);
 }
+
