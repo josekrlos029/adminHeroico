@@ -62,12 +62,13 @@ function aceptar(idDenuncia){
 
 function publicar(){
     var data = {
-        descripcion: $("#descripcion"),
-        fecha: $("#fecha"),
-        hora: $("#hora"),
-        lugar: $("#lugar")
+        descripcion: $("#descripcion").val(),
+        fecha: $("#fecha").val(),
+        hora: $("#hora").val(),
+        lugar: $("#lugar").val()
     };
 
+alert("...");
     var url = "http://heroico.tudomicilio.net/administrador/registrarJornada";
     
     $.ajax({
