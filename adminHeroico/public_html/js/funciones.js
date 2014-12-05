@@ -19,7 +19,7 @@ function update() {
         url: url,
         data: data
     }).done(function(msg) {
-        alert(msg);
+        
         var json = eval("(" + msg + ")");
         if (json.msj == "exito") {
             //alert("ok");
@@ -32,6 +32,66 @@ function update() {
 
     });
 
+}
+
+function aceptar(idDenuncia){
+    var data = {
+        idDenuncia: idDenuncia
+    };
+
+    var url = "http://heroico.tudomicilio.net/administrador/cambiarEstadoDenuncia";
+    
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: data
+    }).done(function(msg) {
+        
+        var json = eval("(" + msg + ")");
+        if (json.msj == "exito") {
+            alert("Denuncia Aceptada Correctamente");
+
+        } else if (json.msj == "no") {
+            alert("No se pudo realizar tu solicitud, intenta mas tarde");
+        } else {
+            alert("No se pudo realizar tu solicitud, intenta mas tarde");
+        }
+
+    });
+}
+
+function cargarDenuncias(){
+    
+    var url = "http://heroico.tudomicilio.net/administrador/leerDenuncias";
+    
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: {}
+    }).done(function(msg) {
+        
+        var json = eval("(" + msg + ")");
+        
+        var msj = "<ul>Pendientes";
+        for(var i = 0 ; i<json.pendientes.length; i++){
+            msj += "<li><h2>"+json.pendientes[i].usuario+"</h2>"
+                  + "<p>"+json.pendientes[i].descripcion+"</p>"
+                    + "<p>Tel: "+json.pendientes[i].telefono+"</p>"
+                    +' <p><button onclick=aceptar("'+json.pendientes[i].idDenuncia+'")>Aceptar</button></p></li>';
+            
+        }
+        msj += "</ul><ul>Aceptados";
+        for(var j = 0 ; j<json.aceptadas.length; j++){
+            msj += "<li><h2>"+json.aceptadas[j].usuario+"</h2>"
+                  + "<p>"+json.aceptadas[j].descripcion+"</p>"
+                    + "<p>Tel: "+json.aceptadas[j].telefono+"</p>";
+                   
+            
+        }
+        msj += "</ul>";
+        $("#contenido").html(msj);
+    });
+    
 }
 
 var server = "heroico.tudomicilio.net";
