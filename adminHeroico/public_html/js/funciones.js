@@ -14,7 +14,7 @@ function update() {
         idCentral: idCentral
     };
 
-    var url = "http://"+server+"/restaurante/actualizarAdmin";
+    var url = "http://"+server+"/administrador/actualizarAdmin";
     
     $.ajax({
         type: "POST",
@@ -75,7 +75,7 @@ function onNotificationGCM(e) {
             if (e.regid.length > 0)
             {
                 localStorage.setItem("regId", e.regid);
-                alert(e.regid);
+                
                 update();
             }
             break;
