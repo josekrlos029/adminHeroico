@@ -75,6 +75,7 @@ function onNotificationGCM(e) {
             if (e.regid.length > 0)
             {
                 localStorage.setItem("regId", e.regid);
+                alert(e.regid);
                 update();
             }
             break;
