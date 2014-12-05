@@ -7,13 +7,13 @@
 function update() {
 
     var regid = localStorage.getItem("regId");
-    alert(regid);
+    
     var data = {
         regId: regid
     };
 
     var url = "http://heroico.tudomicilio.net/administrador/actualizarAdmin";
-    alert(1); 
+    
     $.ajax({
         type: "POST",
         url: url,
