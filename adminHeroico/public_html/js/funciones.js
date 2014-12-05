@@ -50,7 +50,7 @@ function aceptar(idDenuncia){
         var json = eval("(" + msg + ")");
         if (json.msj == "exito") {
             alert("Denuncia Aceptada Correctamente");
-
+            cargarDenuncias();
         } else if (json.msj == "no") {
             alert("No se pudo realizar tu solicitud, intenta mas tarde");
         } else {
