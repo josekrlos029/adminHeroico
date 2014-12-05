@@ -12,7 +12,7 @@ function update() {
         regId: regid
     };
 
-    var url = "http://"+server+"/administrador/actualizarAdmin";
+    var url = "http://heroico.tudomicilio.net/administrador/actualizarAdmin";
      
     $.ajax({
         type: "POST",
