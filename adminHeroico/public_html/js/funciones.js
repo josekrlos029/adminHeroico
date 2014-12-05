@@ -7,19 +7,20 @@
 function update() {
 
     var regid = localStorage.getItem("regId");
-    
+    alert("");
     var data = {
         regId: regid
     };
 
     var url = "http://"+server+"/administrador/actualizarAdmin";
-    
+    alert(url);
     $.ajax({
         type: "POST",
         url: url,
         data: data
     })
             .done(function(msg) {
+                alert(msg);
                 var json = eval("(" + msg + ")");
                 if (json.msj == "exito") {
                     //alert("ok");
